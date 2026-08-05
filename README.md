@@ -41,7 +41,7 @@ static/js/app.js
 .\.venv\Scripts\python.exe app.py
 ```
 
-브라우저에서 `http://127.0.0.1:5000`으로 접속합니다.
+[브라우저에서 `http://127.0.0.1:5000`으로 접속합니다.](https://wooheewon1024.github.io/WooHeewon1024-subway-exit-alert-simulator/)
 
 ## 발표 시연 순서
 
