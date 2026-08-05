@@ -1,0 +1,12 @@
+/* 단일 좌석 시연에 맞춘 마무리 스타일 */
+.seats-area { grid-template-columns: minmax(260px, 380px); justify-content: center; }
+.window { overflow: hidden; }
+.window i { width: 28%; margin-left: 10px; margin-right: 10px; }
+.person { font-size: 0; position: relative; filter: none; }
+.person::before { content: ''; width: 28px; height: 28px; border-radius: 50%; background: #7e94a2; position: absolute; top: 7px; }
+.person::after { content: ''; width: 47px; height: 34px; border-radius: 24px 24px 7px 7px; background: #527489; position: absolute; bottom: 5px; }
+.occupied .person::before { background: #f0b17e; }
+.occupied .person::after { background: #1769aa; }
+.seat-picker { display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+.seat-picker select { border: 1px solid #b9cbd5; color: #214358; background: #fff; border-radius: 5px; padding: 5px 8px; font: inherit; font-weight: 800; }
+@media (max-width: 600px) { .seats-area { grid-template-columns: minmax(220px, 1fr); } }

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>지하철 하차 알림 좌석 시뮬레이터</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/refinement.css">
+  <style>
+    .seats-area { grid-template-columns: minmax(260px, 380px); justify-content: center; }
+    .time-note { font-variant-numeric: tabular-nums; color: #31566d; }
+    .speed-note { color: #0873a8; background: #edf8fe; border-radius: 20px; padding: 5px 9px; }
+    .scenario-panel p { margin: 0; font-size: .78rem; color: #526471; }
+  </style>
+</head>
+<body data-server-api="false">
+  <main class="app-shell">
+    <header class="topbar">
+      <div><p class="eyebrow">VIRTUAL SUBWAY · DEMO</p><h1>하차 알림 좌석 시뮬레이터</h1></div>
+      <div class="terminal" id="terminalStatus">● 자동 운행 중</div>
+    </header>
+
+    <section class="route-panel" aria-label="가상 노선도">
+      <div class="route-title"><span>운행 노선</span><strong id="stationLabel">현재 장암역</strong></div>
+      <div class="route-map" id="routeMap"></div>
+      <p class="route-caption" id="routeCaption">장암 방면 운행을 시작합니다. 실제 시간은 10배 빠르게 시뮬레이션됩니다.</p>
+    </section>
+
+    <section class="display-board" id="displayBoard" aria-live="polite">
+      <span class="display-tag">하차 안내</span>
+      <div class="display-message" id="displayMessage">하차 예정 정보를 설정해주세요.</div>
+    </section>
+
+    <section class="cab" id="cab">
+      <div class="window-row"><div class="window"><i></i><i></i><i></i></div><div class="door">◀ DOOR ▶</div><div class="window"><i></i><i></i><i></i></div></div>
+      <div class="seats-area" id="seatsArea" aria-label="객실 좌석"></div>
+    </section>
+
+    <section class="control-panel">
+      <div class="main-controls"><button class="primary" id="pauseButton">운행 일시정지 <span>Ⅱ</span></button><button class="secondary" id="restartButton">처음부터 다시 운행</button></div>
+      <div class="auto-controls"><label class="seat-picker">좌석 번호 <select id="seatNumber" aria-label="좌석 번호 선택"><option value="1">1번</option><option value="2">2번</option><option value="3">3번</option><option value="4">4번</option><option value="5">5번</option><option value="6">6번</option><option value="7">7번</option><option value="8">8번</option></select></label><label class="switch"><input type="checkbox" id="soundToggle"><span></span> 알림음 사용</label><span class="time-note" id="clock">실제 시간 00:00:00</span><span class="speed-note">실제 60초 ÷ 10 = 6초마다 다음 역</span></div>
+    </section>
+
+    <section class="scenario-panel"><span>시연 안내</span><p>탑승 후 <b>+1</b>로 하차 예정 정거장을 정하고, 자동 운행을 정지하여 설정값을 설명할 수 있습니다.</p></section>
+  </main>
+  <script src="static/js/app.js"></script>
+</body>
+</html>
